@@ -1,0 +1,37 @@
+﻿@page
+@model ProductWebApp.Pages.Production.EditModel
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Edit Product</h2>
+        </div>
+        <hr />
+        <div asp-validation-summary="All"></div>
+        <input type="hidden" asp-for="ProductEd.Id" />
+        <div class="mb-3">
+            <label asp-for="ProductEd.Name"></label>
+            <input asp-for="ProductEd.Name" class="form-control" />
+            <span asp-validation-for="ProductEd.Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ProductEd.Price"></label>
+            <input asp-for="ProductEd.Price" class="form-control" />
+            <span asp-validation-for="ProductEd.Price" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ProductEd.Quentity"></label>
+            <input asp-for="ProductEd.Quentity" class="form-control" />
+            <span asp-validation-for="ProductEd.Quentity" class="text-danger"></span>
+        </div>
+        <input type="submit" class="btn btn-primary" style="width:150px" value="Update">
+    </div>
+    <div class="col-3">
+        <a asp-page="Index" class="btn btn-success form-control">Back to List</a>
+    </div>
+</form>
+@section Scripts{
+    @{
+        <Partial name="_ValidationScriptsPartial" />
+    }
+}

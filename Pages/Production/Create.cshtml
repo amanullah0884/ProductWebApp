@@ -1,0 +1,37 @@
+﻿@page
+@model ProductWebApp.Pages.Production.CreateModel
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Create Product</h2>
+        </div>
+        <hr />
+        <div asp-validation-summary="All"></div>
+
+        <div class="mb-3">
+           <label asp-for="Iproduct.Name"></label>
+            <input asp-for="Iproduct.Name" class="form-control" />
+            <span asp-validation-for="Iproduct.Name" class="text-danger"></span>
+            </div>
+
+        <div class="mb-3">
+            <label asp-for="Iproduct.Price"></label>
+            <input asp-for="Iproduct.Price" class="form-control" />
+            <span asp-validation-for="Iproduct.Price" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Iproduct.Quentity"></label>
+            <input asp-for="Iproduct.Quentity" class="form-control" />
+            <span asp-validation-for="Iproduct.Quentity" class="text-danger"></span>
+        </div>
+        <input type="submit" class="btn btn-primary" style="width:150px" value="Create">
+    </div>
+    <div class="col-3">
+        <a asp-page="Index" class="btn btn-success form-control">Back to List</a>
+    </div>
+</form>
+@section Scripts{
+    @{
+       <Partial name = "_ValidationScriptsPartial"/>
+    }
+}

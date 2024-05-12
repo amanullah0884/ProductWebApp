@@ -1,0 +1,56 @@
+﻿@page
+@model ProductWebApp.Pages.Production.IndexModel
+<div class="contain p-3">
+    <div class="row pt-4">
+        <div class=" col-6">
+            <h2 class="text-primary">Product List</h2>
+        </div>
+        <div class="col-6">
+            <a asp-page="Create" class="btn btn-primary">
+                Create New Product
+            </a>
+
+        </div>
+    </div>
+    <br /> <br />
+    <form method="post">
+        @if (Model.productinfo.Count() > 0)
+            {
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                   Product Name           
+                </th>
+                <th>
+                    Product Price
+                </th>
+                <th>
+                    Product Quentity
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var obj in Model.productinfo)
+            {
+                <tr>
+                    <td width="50%">@obj.Name</td>
+                    <td width="30%">@obj.Price</td>
+                    <td width="30%">@obj.Quentity</td>
+
+                </tr>
+            <td>
+                <button asp-page-handler="Delete" asp-route-id="@obj.Id" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button>
+                <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-success btn-sm text-white">Edit</a>
+            </td>
+            }
+        </tbody>
+    </table>
+        }
+        else
+        {
+            <p>No Products available.</p>
+        }
+        </form>
+</div>
